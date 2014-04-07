@@ -20523,6 +20523,10 @@ System.register("traceur@0.0.33/src/codegeneration/module/AttachModuleNameTransf
       Module = $__314.Module,
       Script = $__314.Script;
   var AttachModuleNameTransformer = function AttachModuleNameTransformer(moduleName) {
+    var parts = moduleName.split('/');
+    if (parts[0] === '.')
+      parts.shift();
+    moduleName = parts.join('/');
     this.moduleName_ = moduleName;
   };
   ($traceurRuntime.createClass)(AttachModuleNameTransformer, {

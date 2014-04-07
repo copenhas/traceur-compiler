@@ -29,6 +29,9 @@ export class AttachModuleNameTransformer extends ParseTreeTransformer {
    * @param {SourceFile} file
    */
   constructor(moduleName) {
+    var parts = moduleName.split('/');
+    if (parts[0] === '.') parts.shift();
+    moduleName = parts.join('/');
     this.moduleName_ = moduleName;
   }
 
